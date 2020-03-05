@@ -1,8 +1,0 @@
-{
-  "input": [
-    "<link_to_pdf1>",
-    "<link_to_pdf2"
-  ],
-  "bucket": "<s3_bucket_name>",
-  "output": "output.pdf"
-}

@@ -19,20 +19,20 @@ In your console, execute:
 
 to build the code, then execute:
 
-`sam local invoke -e input.json`
+`sam local invoke -e events/event.json`
 
-to test the code locally. Note that you'll need to modify the input.json file to
+to test the code locally. Note that you'll need to modify the event.json file to
 include the correct links to the PDFs you want to combine, and the S3 bucket and
-output file name. If your input.json is correct, you'll see a result like this
+output file name. If your event.json is correct, you'll see a result like this
 in  the console:
 
-`$ sam local invoke -e input.json`
+`$ sam local invoke -e events/event.json`
 
 `Invoking app.lambda_handler (python3.7)`
 ``
 `Fetching lambci/lambda:python3.7 Docker container image......`
 
-`Mounting /Users/datnguyen/works/tiendatiowa/sam/combine-pdf/.aws-sam/build/HelloWorldFunction as /var/task:ro,delegated inside runtime container`
+`Mounting /Users/datnguyen/works/tiendatiowa/sam/combine-pdf/.aws-sam/build/CombinePdfFunction as /var/task:ro,delegated inside runtime container`
 
 `START RequestId: fea61f91-0df7-1b00-24b1-7af880e609b1 Version: $LATEST`
 

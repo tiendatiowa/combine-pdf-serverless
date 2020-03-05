@@ -46,7 +46,7 @@ def mergeContentOfUrl(url, writer):
         raise InvalidPdfContent("Could not extract content from URL '{}'".format(url))
 
 
-def extractParamFromEvent(event, paramName):
+def extractParamFromJson(event, paramName):
     try:
         return event[paramName]
     except:
@@ -55,15 +55,17 @@ def extractParamFromEvent(event, paramName):
 
 def lambda_handler(event, context):
     try:
-        urls = extractParamFromEvent(event, "input")  # list of URLs for input PDFS, e.g. S3 path to these PDFs
+        bodyStr = extractParamFromJson(event, "body")
+        bodyJson = json.loads(bodyStr)
+        urls = extractParamFromJson(bodyJson, "input")  # list of URLs for input PDFS, e.g. S3 path to these PDFs
         if len(urls) == 0:
             raise InvalidInput("There's no URL in the 'input' param")
 
-        bucket = extractParamFromEvent(event, "bucket")  # the bucket to write the output PDF
+        bucket = extractParamFromJson(bodyJson, "bucket")  # the bucket to write the output PDF
         if len(bucket) == 0:
             raise InvalidInput("The 'bucket' param is empty")
 
-        key = extractParamFromEvent(event, "output")  # the name of the output PDF
+        key = extractParamFromJson(bodyJson, "output")  # the name of the output PDF
         if len(key) == 0:
             raise InvalidInput("The 'output' param is empty")
 
