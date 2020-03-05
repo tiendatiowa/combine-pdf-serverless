@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "combine-pdf"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-u88bidvdi8ov"
+s3_prefix = "combine-pdf"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

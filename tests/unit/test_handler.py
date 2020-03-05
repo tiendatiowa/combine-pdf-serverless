@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from hello_world import app
+from combine_pdf import app
 
 
 @pytest.fixture()
